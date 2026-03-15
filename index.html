@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiwi CRM – Zoho Partner New Zealand</title>
+    <meta name="description" content="KIWI CRM - New Zealand's Zoho alliance partner. Customer Relationship Management consulting, implementation and training.">
+    <style>
+        /* Reset & Base */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background: #fff;
+        }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; height: auto; }
+
+        /* Top Bar */
+        .top-bar {
+            background: #1a1a2e;
+            color: #ccc;
+            font-size: 0.85rem;
+            padding: 8px 0;
+        }
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .top-bar a { color: #8ec5fc; }
+        .top-bar a:hover { color: #fff; }
+
+        /* Container */
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+        .logo h1 {
+            font-size: 1.5rem;
+            color: #1a1a2e;
+            font-weight: 700;
+        }
+        .logo h1 span { color: #d7112e; }
+        .logo p {
+            font-size: 0.75rem;
+            color: #888;
+            margin-top: 2px;
+        }
+
+        /* Navigation */
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 8px;
+        }
+        nav ul li a {
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #444;
+            transition: all 0.2s;
+        }
+        nav ul li a:hover {
+            background: #f0f4ff;
+            color: #d7112e;
+        }
+        nav ul li a.active {
+            background: #d7112e;
+            color: #fff;
+        }
+
+        /* Mobile menu */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #fff;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(215,17,46,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        .hero h2 {
+            font-size: 2.8rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .hero h2 span { color: #ff6b6b; }
+        .hero p {
+            font-size: 1.1rem;
+            color: #b8c5d6;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary {
+            background: #d7112e;
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background: #b50e26;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(215,17,46,0.3);
+        }
+        .btn-outline {
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        .btn-outline:hover {
+            border-color: #fff;
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Hero Stats */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .stat-card {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+        }
+        .stat-card .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ff6b6b;
+        }
+        .stat-card .label {
+            font-size: 0.85rem;
+            color: #b8c5d6;
+            margin-top: 5px;
+        }
+
+        /* Sections */
+        section { padding: 80px 0; }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: #1a1a2e;
+            margin-bottom: 15px;
+        }
+        .section-title h2 span { color: #d7112e; }
+        .section-title p {
+            color: #666;
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Why Zoho */
+        .why-zoho { background: #f8f9fc; }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .benefit-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 35px 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #eef0f5;
+        }
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+        }
+        .benefit-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .benefit-icon.green { background: #e8f8f0; }
+        .benefit-icon.blue { background: #e8f0ff; }
+        .benefit-icon.red { background: #ffe8ec; }
+        .benefit-icon.purple { background: #f0e8ff; }
+        .benefit-card h3 {
+            font-size: 1.15rem;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+        .benefit-card p {
+            color: #666;
+            font-size: 0.92rem;
+        }
+
+        /* About */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: #1a1a2e;
+            margin-bottom: 15px;
+        }
+        .about-text h3 span { color: #d7112e; }
+        .about-text p {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        .about-image {
+            background: linear-gradient(135deg, #f0f4ff, #e8f0ff);
+            border-radius: 20px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 350px;
+        }
+        .about-image .zoho-badge {
+            text-align: center;
+        }
+        .about-image .zoho-badge .badge-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+        .about-image .zoho-badge h3 {
+            font-size: 1.4rem;
+            color: #1a1a2e;
+        }
+        .about-image .zoho-badge p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Services */
+        .services { background: #f8f9fc; }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .service-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #eef0f5;
+            transition: box-shadow 0.3s;
+        }
+        .service-item:hover {
+            box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+        }
+        .service-check {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            background: #e8f8f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2ecc71;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-top: 2px;
+        }
+        .service-item p {
+            color: #444;
+            font-size: 0.95rem;
+        }
+
+        /* Skills & Value */
+        .skills-value-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .sv-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid #eef0f5;
+        }
+        .sv-card h3 {
+            font-size: 1.4rem;
+            color: #d7112e;
+            margin-bottom: 15px;
+        }
+        .sv-card p {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Contact */
+        .contact { background: #1a1a2e; color: #fff; }
+        .contact .section-title h2 { color: #fff; }
+        .contact .section-title p { color: #b8c5d6; }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        .contact-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+        .contact-info p {
+            color: #b8c5d6;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            color: #ddd;
+        }
+        .contact-detail .icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(215,17,46,0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 35px;
+        }
+        .contact-form h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            color: #b8c5d6;
+            margin-bottom: 5px;
+        }
+        .form-group label span { color: #ff6b6b; }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 0.9rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #d7112e;
+        }
+        .form-group textarea { height: 100px; resize: vertical; }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .contact-form .btn-primary {
+            width: 100%;
+            padding: 14px;
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background: #111126;
+            padding: 40px 0 20px;
+            color: #888;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            margin-bottom: 20px;
+        }
+        .footer-logo h3 {
+            color: #fff;
+            font-size: 1.2rem;
+        }
+        .footer-logo h3 span { color: #d7112e; }
+        .footer-logo p {
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+        .footer-links {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: #888;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: #fff; }
+        .footer-bottom {
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #fff;
+                flex-direction: column;
+                padding: 15px 20px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            }
+            nav ul.open { display: flex; }
+            .hero h2 { font-size: 2rem; }
+            .hero-content,
+            .about-content,
+            .contact-grid,
+            .skills-value-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .hero-stats { grid-template-columns: 1fr 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            section { padding: 50px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <span>New Zealand's Trusted Zoho Alliance Partner</span>
+            <a href="#contact">&#128222; 09 940 8101</a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo">
+                    <div class="logo-icon">&#127808;</div>
+                    <div>
+                        <h1>Kiwi <span>CRM</span></h1>
+                        <p>Zoho Alliance Partner NZ</p>
+                    </div>
+                </div>
+                <button class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('open')">&#9776;</button>
+                <nav>
+                    <ul>
+                        <li><a href="#hero" class="active">Home</a></li>
+                        <li><a href="#why">Why Zoho</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div>
+                    <h2>Build, Maintain &amp; <span>Strengthen</span> Your Customer Relationships</h2>
+                    <p>Kiwi CRM is a senior New Zealand partner of Zoho Corporation, specialising in providing holistic CRM solutions to organisations. Join over 30 million users already working with Zoho.</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">Get Started Free</a>
+                        <a href="#services" class="btn btn-outline">Our Services</a>
+                    </div>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <div class="number">30M+</div>
+                        <div class="label">Zoho Users Worldwide</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">45+</div>
+                        <div class="label">Zoho Applications</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">24/7</div>
+                        <div class="label">Cloud Access</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">NZ</div>
+                        <div class="label">Local Support</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Zoho -->
+    <section class="why-zoho" id="why">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why <span>Zoho CRM</span>?</h2>
+                <p>The most cost-effective and reliable CRM solution. Minimum investment for maximum return.</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon green">&#128176;</div>
+                    <h3>Tremendous Savings</h3>
+                    <p>Huge savings on maintenance and upgrade costs. No expensive equipment, software, or networks needed.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon blue">&#9729;&#65039;</div>
+                    <h3>Full Cloud Access</h3>
+                    <p>Full backup and availability. Access from anywhere, 24 hours a day, 7 days a week.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon red">&#128279;</div>
+                    <h3>Built-in Integration</h3>
+                    <p>Seamless integration with Outlook, Google Apps, Xero, MYOB, and many more business tools.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon purple">&#9889;</div>
+                    <h3>Excellent Performance</h3>
+                    <p>Enterprise-grade CRM solution accessible to businesses of all sizes through the power of SaaS.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Your Trusted <span>Zoho Partner</span> in New Zealand</h3>
+                    <p>Kiwi CRM specialises in providing a holistic solution to organisations in the field of Customer Relationship Management (Zoho CRM) and enterprise computing processes using web-based advanced internet tools.</p>
+                    <p>Zoho CRM is a powerful tool ideally suited to medium and small businesses due to its strong, extensive functionality and cost-effective pricing. The system is entirely based on Software As A Service (SaaS), providing access to an advanced CRM solution using only the internet.</p>
+                    <div class="skills-value-grid" style="margin-top: 30px;">
+                        <div class="sv-card">
+                            <h3>Our Skills</h3>
+                            <p>Our advisory panel includes experts in CRM, web designers, trainers and specialists in digital marketing and SEO. Our consultants have extensive experience across a variety of industries using cutting-edge web tools.</p>
+                        </div>
+                        <div class="sv-card">
+                            <h3>Our Added Value</h3>
+                            <p>We ensure important business benefits: increasing efficiency and collaboration between employees, high visibility of key processes for managers, and full visibility enabling proactive business decisions based on accurate information.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="zoho-badge">
+                        <div class="badge-icon">&#127808;&#129309;</div>
+                        <h3>Authorised Zoho Partner</h3>
+                        <p>Senior Alliance Partner<br>Serving New Zealand businesses since 2011</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our <span>Services</span></h2>
+                <p>Comprehensive CRM consulting, implementation, and ongoing support for your business.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-item">
+                    <div class="service-check">&#10003;</div>
+                    <p>Zoho CRM and Zoho Apps consulting, implementation and training</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-check">&#10003;</div>
+                    <p>Ongoing support and guidance after going live</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-check">&#10003;</div>
+                    <p>Analysing your business processes and solving your pain points</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-check">&#10003;</div>
+                    <p>Customer behaviour analysis and detection of target customers</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-check">&#10003;</div>
+                    <p>Promoting online sales using social CRM marketing strategy</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-check">&#10003;</div>
+                    <p>Website building based on open source platforms</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-check">&#10003;</div>
+                    <p>Improving your sales and communication efficiency</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-check">&#10003;</div>
+                    <p>Change management and training your sales personnel</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Ready to transform your business with Zoho CRM? Contact us today for a free consultation.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Let's Talk About Your CRM Needs</h3>
+                    <p>Whether you're looking to implement Zoho CRM for the first time, migrate from another system, or optimise your current setup, our team is here to help.</p>
+                    <div class="contact-detail">
+                        <div class="icon">&#128222;</div>
+                        <div>
+                            <strong>Phone</strong><br>
+                            09 940 8101
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="icon">&#128205;</div>
+                        <div>
+                            <strong>Location</strong><br>
+                            Auckland, New Zealand
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="icon">&#127760;</div>
+                        <div>
+                            <strong>Service Area</strong><br>
+                            All of New Zealand &amp; Australia
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm" onsubmit="handleSubmit(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>First Name <span>*</span></label>
+                                <input type="text" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name <span>*</span></label>
+                                <input type="text" name="lastName" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Company</label>
+                            <input type="text" name="company">
+                        </div>
+                        <div class="form-group">
+                            <label>Email <span>*</span></label>
+                            <input type="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="tel" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea name="message" placeholder="Tell us about your CRM needs..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Kiwi <span>CRM</span></h3>
+                    <p>Making your CRM personal</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#hero">Home</a>
+                    <a href="#why">Why Zoho</a>
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Kiwi CRM &copy; 2013 &ndash; 2026. All rights reserved. Authorised Zoho Alliance Partner, New Zealand.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple form handler
+        function handleSubmit(e) {
+            e.preventDefault();
+            alert('Thank you for your interest! We will be in touch shortly.');
+            e.target.reset();
+        }
+
+        // Active nav link on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav ul li a');
+            let current = '';
+            sections.forEach(section => {
+                const top = section.offsetTop - 100;
+                if (scrollY >= top) current = section.getAttribute('id');
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
