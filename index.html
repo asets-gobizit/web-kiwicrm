@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kiwi CRM – Zoho Partner New Zealand</title>
     <meta name="description" content="KIWI CRM - New Zealand's Zoho alliance partner. Customer Relationship Management consulting, implementation and training.">
+    <link rel="icon" href="images/favicon.png" type="image/png">
     <style>
         /* Reset & Base */
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -60,14 +61,15 @@
             gap: 12px;
         }
         .logo-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            width: 55px;
+            height: 55px;
             border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
+            overflow: hidden;
+        }
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
         .logo h1 {
             font-size: 1.5rem;
@@ -307,8 +309,10 @@
             text-align: center;
         }
         .about-image .zoho-badge .badge-icon {
-            font-size: 4rem;
             margin-bottom: 15px;
+        }
+        .about-image .zoho-badge .badge-icon img {
+            max-width: 120px;
         }
         .about-image .zoho-badge h3 {
             font-size: 1.4rem;
@@ -555,7 +559,7 @@
         <div class="container">
             <div class="header-inner">
                 <div class="logo">
-                    <div class="logo-icon">&#127808;</div>
+                    <div class="logo-icon"><img src="images/kiwi_crm_logo.jpg" alt="Kiwi CRM Logo"></div>
                     <div>
                         <h1>Kiwi <span>CRM</span></h1>
                         <p>Zoho Alliance Partner NZ</p>
@@ -662,7 +666,7 @@
                 </div>
                 <div class="about-image">
                     <div class="zoho-badge">
-                        <div class="badge-icon">&#127808;&#129309;</div>
+                        <div class="badge-icon"><img src="images/kiwi_crm_logo.jpg" alt="Kiwi CRM Logo"></div>
                         <h3>Authorised Zoho Partner</h3>
                         <p>Senior Alliance Partner<br>Serving New Zealand businesses since 2011</p>
                     </div>
