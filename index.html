@@ -391,9 +391,8 @@
         .contact .section-title h2 { color: #fff; }
         .contact .section-title p { color: #b8c5d6; }
         .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            max-width: 600px;
+            margin: 0 auto;
         }
         .contact-info h3 {
             font-size: 1.3rem;
@@ -423,56 +422,6 @@
             font-size: 1.1rem;
         }
 
-        /* Contact Form */
-        .contact-form {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 16px;
-            padding: 35px;
-        }
-        .contact-form h3 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            font-size: 0.85rem;
-            color: #b8c5d6;
-            margin-bottom: 5px;
-        }
-        .form-group label span { color: #ff6b6b; }
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 15px;
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.15);
-            border-radius: 8px;
-            color: #fff;
-            font-size: 0.9rem;
-            font-family: inherit;
-            transition: border-color 0.3s;
-        }
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #d7112e;
-        }
-        .form-group textarea { height: 100px; resize: vertical; }
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-        .contact-form .btn-primary {
-            width: 100%;
-            padding: 14px;
-            font-size: 1rem;
-            margin-top: 5px;
-        }
 
         /* Footer */
         footer {
@@ -539,7 +488,6 @@
                 gap: 30px;
             }
             .hero-stats { grid-template-columns: 1fr 1fr; }
-            .form-row { grid-template-columns: 1fr; }
             section { padding: 50px 0; }
         }
     </style>
@@ -738,44 +686,19 @@
                         </div>
                     </div>
                     <div class="contact-detail">
+                        <div class="icon">&#9993;</div>
+                        <div>
+                            <strong>Email</strong><br>
+                            <a href="mailto:info@gobizit.co.nz" style="color:#8ec5fc;">info@kiwicrm.co.nz</a>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
                         <div class="icon">&#127760;</div>
                         <div>
                             <strong>Service Area</strong><br>
                             All of New Zealand &amp; Australia
                         </div>
                     </div>
-                </div>
-                <div class="contact-form">
-                    <h3>Send Us a Message</h3>
-                    <form id="contactForm" onsubmit="handleSubmit(event)">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>First Name <span>*</span></label>
-                                <input type="text" name="firstName" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Last Name <span>*</span></label>
-                                <input type="text" name="lastName" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Company</label>
-                            <input type="text" name="company">
-                        </div>
-                        <div class="form-group">
-                            <label>Email <span>*</span></label>
-                            <input type="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Phone</label>
-                            <input type="tel" name="phone">
-                        </div>
-                        <div class="form-group">
-                            <label>Message</label>
-                            <textarea name="message" placeholder="Tell us about your CRM needs..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
                 </div>
             </div>
         </div>
@@ -804,13 +727,6 @@
     </footer>
 
     <script>
-        // Simple form handler
-        function handleSubmit(e) {
-            e.preventDefault();
-            alert('Thank you for your interest! We will be in touch shortly.');
-            e.target.reset();
-        }
-
         // Active nav link on scroll
         window.addEventListener('scroll', function() {
             const sections = document.querySelectorAll('section[id]');
