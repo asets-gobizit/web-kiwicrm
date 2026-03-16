@@ -280,10 +280,8 @@
 
         /* About */
         .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
         }
         .about-text h3 {
             font-size: 1.8rem;
@@ -295,32 +293,6 @@
             color: #555;
             margin-bottom: 15px;
             font-size: 0.95rem;
-        }
-        .about-image {
-            background: linear-gradient(135deg, #f0f4ff, #e8f0ff);
-            border-radius: 20px;
-            padding: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 350px;
-        }
-        .about-image .zoho-badge {
-            text-align: center;
-        }
-        .about-image .zoho-badge .badge-icon {
-            margin-bottom: 15px;
-        }
-        .about-image .zoho-badge .badge-icon img {
-            max-width: 120px;
-        }
-        .about-image .zoho-badge h3 {
-            font-size: 1.4rem;
-            color: #1a1a2e;
-        }
-        .about-image .zoho-badge p {
-            color: #666;
-            font-size: 0.9rem;
         }
 
         /* Services */
@@ -481,7 +453,6 @@
             nav ul.open { display: flex; }
             .hero h2 { font-size: 2rem; }
             .hero-content,
-            .about-content,
             .contact-grid,
             .skills-value-grid {
                 grid-template-columns: 1fr;
@@ -610,13 +581,6 @@
                             <h3>Our Added Value</h3>
                             <p>We ensure important business benefits: increasing efficiency and collaboration between employees, high visibility of key processes for managers, and full visibility enabling proactive business decisions based on accurate information.</p>
                         </div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <div class="zoho-badge">
-                        <div class="badge-icon"><img src="images/kiwi_crm_logo.jpg" alt="Kiwi CRM Logo"></div>
-                        <h3>Authorised Zoho Support Provider</h3>
-                        <p>Senior Support Provider<br>Serving New Zealand businesses since 2011</p>
                     </div>
                 </div>
             </div>
