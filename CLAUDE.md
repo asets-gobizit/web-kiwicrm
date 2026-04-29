@@ -20,7 +20,7 @@ Marketing website for **Kiwi CRM** — a New Zealand Zoho consulting and product
 
 ## Canonical Contact
 - **Email:** `info@kiwicrm.co.nz` (do NOT use `info@gobizit.co.nz` on this site — domain mismatch)
-- **Phone:** TBD (Danny to supply NZ-formatted number)
+- **Phone:** Removed from site per Danny 2026-04-29. Do not reintroduce `tel:` links or a published number unless Danny explicitly asks.
 
 ## Design Context
 - **Register:** brand (marketing site)

@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kiwi CRM | NZ Zoho Consulting Since 2012</title>
-  <meta name="description" content="New Zealand's Zoho consulting firm since 2012. Implementation, training, and support, answered in NZ business hours. Email or call us today.">
+  <meta name="description" content="New Zealand's Zoho consulting firm since 2012. Implementation, training, and support, answered in NZ business hours. Email us today.">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Kiwi CRM | NZ Zoho Consulting Since 2012">
-  <meta property="og:description" content="Zoho consulting that picks up the phone. Based in New Zealand, working in your time zone.">
+  <meta property="og:description" content="Zoho consulting that gets the job done. Based in New Zealand, working in your time zone.">
   <meta property="og:url" content="https://www.kiwicrm.co.nz/">
   <meta name="theme-color" content="#2eaa4a">
 
@@ -155,29 +155,19 @@
       gap: var(--sp-3);
     }
     .brand-mark {
-      width: 44px;
-      height: 44px;
-      background: var(--brand);
-      border-radius: 12px;
-      position: relative;
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      overflow: hidden;
       flex-shrink: 0;
+      background: var(--brand-tint);
+      box-shadow: 0 1px 3px rgba(26,26,46,0.08);
     }
-    .brand-mark::before {
-      content: '';
-      position: absolute;
-      inset: 8px;
-      background: radial-gradient(circle at 30% 30%, var(--brand-tint) 0%, transparent 60%);
-      border-radius: 8px;
-    }
-    .brand-mark::after {
-      content: '';
-      position: absolute;
-      width: 14px;
-      height: 14px;
-      background: var(--surface);
-      border-radius: 50%;
-      bottom: 8px;
-      right: 8px;
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
     .brand-name {
       font-family: var(--font-display);
@@ -297,15 +287,33 @@
     }
     .btn:hover .btn-arrow { transform: translateX(3px); }
 
-    /* Hero abstract illustration — geometric pohutukawa cluster */
+    /* Hero photo — real CRM dashboard imagery, framed with brand-tinted glow */
     .hero-art {
       width: 100%;
-      max-width: 420px;
-      aspect-ratio: 1;
+      max-width: 540px;
       margin: 0 auto;
       position: relative;
     }
-    .hero-art svg { width: 100%; height: 100%; }
+    .hero-art::before {
+      content: '';
+      position: absolute;
+      inset: -16px -16px -8px -16px;
+      background: linear-gradient(135deg, var(--brand-tint) 0%, transparent 60%);
+      border-radius: 20px;
+      z-index: 0;
+    }
+    .hero-art img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow:
+        0 1px 0 rgba(26,26,46,0.08),
+        0 18px 40px -16px rgba(26,26,46,0.25),
+        0 8px 16px -8px rgba(46,170,74,0.15);
+    }
 
     /* ──────────────────────────────────────────────────────────────
        Section primitives
@@ -550,16 +558,42 @@
       background:
         radial-gradient(ellipse at 20% 80%, var(--brand-wash) 0%, transparent 55%),
         var(--surface);
-      text-align: center;
     }
-    .contact .section-title { margin-left: auto; margin-right: auto; }
-    .contact .section-lead { margin-left: auto; margin-right: auto; }
+    .contact-grid {
+      display: grid;
+      gap: var(--sp-7);
+      align-items: center;
+    }
+    @media (min-width: 880px) {
+      .contact-grid { grid-template-columns: 1fr 1fr; gap: var(--sp-8); }
+    }
+    .contact-photo {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      box-shadow:
+        0 1px 0 rgba(26,26,46,0.08),
+        0 18px 40px -16px rgba(26,26,46,0.25);
+    }
+    .contact-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .contact-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(46,170,74,0.0) 50%, rgba(46,170,74,0.18) 100%);
+      pointer-events: none;
+    }
     .contact-actions {
       margin-top: var(--sp-7);
       display: flex;
       flex-direction: column;
       gap: var(--sp-3);
-      align-items: center;
+      align-items: flex-start;
     }
     @media (min-width: 640px) {
       .contact-actions { flex-direction: row; justify-content: center; }
@@ -660,8 +694,6 @@
   <div class="wrap">
     <span>NZ Zoho consulting since 2012</span>
     <div class="topbar-contact">
-      <a href="tel:+64213330266" aria-label="Call Kiwi CRM on +64 21 330 266">+64 21 330 266</a>
-      <span aria-hidden="true">·</span>
       <a href="mailto:info@kiwicrm.co.nz" aria-label="Email Kiwi CRM at info@kiwicrm.co.nz">info@kiwicrm.co.nz</a>
     </div>
   </div>
@@ -671,7 +703,7 @@
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Kiwi CRM home">
-      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-mark"><img src="images/kiwi_crm_logo.jpg" alt="Kiwi CRM logo"></span>
       <span class="brand-name">Kiwi <span>CRM</span></span>
     </a>
     <a href="mailto:info@kiwicrm.co.nz?subject=Enquiry%20from%20kiwicrm.co.nz" class="header-cta">Get in touch</a>
@@ -686,7 +718,7 @@
     <div class="hero-grid">
       <div>
         <span class="hero-eyebrow">Zoho consulting · New Zealand</span>
-        <h1 class="hero-title">NZ Zoho consulting <em>that picks up&nbsp;the&nbsp;phone.</em></h1>
+        <h1 class="hero-title">NZ Zoho consulting <em>that gets&nbsp;the&nbsp;job&nbsp;done.</em></h1>
         <p class="hero-sub">
           We're the New Zealand Zoho partner SMEs call when they want CRM that actually works.
           Implementation, training, and ongoing support, answered in your time zone since 2012.
@@ -695,49 +727,12 @@
           <a href="mailto:info@kiwicrm.co.nz?subject=Zoho%20enquiry%20from%20kiwicrm.co.nz" class="btn btn-primary">
             Email us <span class="btn-arrow" aria-hidden="true">→</span>
           </a>
-          <a href="tel:+64213330266" class="btn btn-secondary">
-            Call +64 21 330 266
-          </a>
         </div>
       </div>
 
-      <!-- Abstract pohutukawa-cluster illustration. No people-photos. -->
-      <div class="hero-art" aria-hidden="true">
-        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <radialGradient id="dotFade" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#2eaa4a" stop-opacity="1"/>
-              <stop offset="100%" stop-color="#2eaa4a" stop-opacity="0"/>
-            </radialGradient>
-          </defs>
-          <!-- Outer arc -->
-          <circle cx="200" cy="200" r="170" fill="none" stroke="#2eaa4a" stroke-width="1.5" stroke-opacity="0.25"/>
-          <circle cx="200" cy="200" r="120" fill="none" stroke="#2eaa4a" stroke-width="1.5" stroke-opacity="0.4"/>
-          <!-- Cluster of network nodes — kiwi-green palette -->
-          <g fill="#2eaa4a">
-            <circle cx="200" cy="100" r="8"/>
-            <circle cx="270" cy="135" r="6"/>
-            <circle cx="300" cy="200" r="10"/>
-            <circle cx="270" cy="265" r="6"/>
-            <circle cx="200" cy="300" r="8"/>
-            <circle cx="130" cy="265" r="6"/>
-            <circle cx="100" cy="200" r="10"/>
-            <circle cx="130" cy="135" r="6"/>
-          </g>
-          <!-- Connecting lines (network feel) -->
-          <g stroke="#2eaa4a" stroke-width="1.2" stroke-opacity="0.5" fill="none">
-            <line x1="200" y1="100" x2="300" y2="200"/>
-            <line x1="200" y1="100" x2="100" y2="200"/>
-            <line x1="200" y1="300" x2="300" y2="200"/>
-            <line x1="200" y1="300" x2="100" y2="200"/>
-            <line x1="270" y1="135" x2="130" y2="265"/>
-            <line x1="130" y1="135" x2="270" y2="265"/>
-          </g>
-          <!-- Center heart -->
-          <circle cx="200" cy="200" r="22" fill="url(#dotFade)"/>
-          <circle cx="200" cy="200" r="14" fill="#218a3b"/>
-          <circle cx="200" cy="200" r="6" fill="#dcf3e1"/>
-        </svg>
+      <!-- Hero photo: real CRM dashboard. Carries the green palette through the imagery. -->
+      <div class="hero-art">
+        <img src="images/hero-crm2.jpg" alt="Zoho CRM dashboard with sales analytics and KPI charts on a laptop, set up by Kiwi CRM" loading="eager" width="540" height="405">
       </div>
     </div>
   </div>
@@ -757,7 +752,7 @@
       <div class="why-item">
         <h3>NZ business hours</h3>
         <p>
-          We answer email and phone in NZ time. No ticket queues, no offshore call centres.
+          We answer email in NZ time. No ticket queues, no offshore call centres.
           You email Danny, Danny reads it.
         </p>
       </div>
@@ -950,21 +945,24 @@
 <!-- ───── Contact close ───── -->
 <section class="contact reveal" id="contact">
   <div class="wrap">
-    <span class="section-label">Get in touch</span>
-    <h2 class="section-title">Email or call. We'll come back fast.</h2>
-    <p class="section-lead">
-      Most enquiries get a response the same NZ business day. Discovery calls are free and
-      under 30 minutes.
-    </p>
-
-    <div class="contact-actions">
-      <a href="mailto:info@kiwicrm.co.nz?subject=Zoho%20enquiry%20from%20kiwicrm.co.nz" class="contact-action-big primary">
-        info@kiwicrm.co.nz
-        <span class="btn-arrow" aria-hidden="true">→</span>
-      </a>
-      <a href="tel:+64213330266" class="contact-action-big">
-        +64 21 330 266
-      </a>
+    <div class="contact-grid">
+      <div class="contact-photo">
+        <img src="images/nz-auckland.jpg" alt="Auckland skyline at twilight, looking across the harbour toward the Sky Tower" loading="lazy" width="640" height="480">
+      </div>
+      <div>
+        <span class="section-label">Get in touch</span>
+        <h2 class="section-title">Email us. We'll come back fast.</h2>
+        <p class="section-lead">
+          Most enquiries get a response the same NZ business day. Discovery calls are free and
+          under 30 minutes, booked by reply.
+        </p>
+        <div class="contact-actions">
+          <a href="mailto:info@kiwicrm.co.nz?subject=Zoho%20enquiry%20from%20kiwicrm.co.nz" class="contact-action-big primary">
+            info@kiwicrm.co.nz
+            <span class="btn-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -977,7 +975,6 @@
     <span>© <script>document.write(new Date().getFullYear())</script><noscript>2026</noscript> Kiwi CRM. NZ-based since 2012.</span>
     <div class="footer-links">
       <a href="mailto:info@kiwicrm.co.nz">Email</a>
-      <a href="tel:+64213330266">Call</a>
     </div>
     <span class="footer-meta">Zoho consulting · Implementation · Training · Support</span>
   </div>

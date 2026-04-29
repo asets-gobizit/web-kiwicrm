@@ -50,7 +50,7 @@ What this site must explicitly NOT look or feel like:
 
 4. **Frictionless contact.** The primary CTA mechanism is `mailto:` — kiwi owner-operators will just email. No gating forms, no calendar dance, no qualification questionnaires. Email and phone visible above the fold. Every CTA in the site reduces to one click.
 
-5. **Show, don't list.** No stock-photo people, no emoji feature icons, no identical card grids. Abstract illustrations, bold typography, and confident whitespace do the visual work. Each section earns its place — restated headings and intros that repeat the title get cut.
+5. **Show, don't list.** No emoji feature icons, no identical card grids, no faux-3D dashboard mockups. Bold typography and confident whitespace do the heavy lifting. ~~No stock-photo people.~~ **Overruled by Danny 2026-04-29:** the legacy site's images (CRM dashboard photo, Auckland skyline, kiwi-crm logo) are reintegrated tastefully — Danny preferred them over the abstract-only direction. Each section still earns its place; restated headings and intros that repeat the title get cut.
 
 ## Accessibility & Inclusion
 
@@ -62,5 +62,5 @@ What this site must explicitly NOT look or feel like:
 - Semantic HTML (proper landmark roles, heading hierarchy, descriptive `alt` on every image).
 - `prefers-reduced-motion` honored — animations gracefully degrade.
 - Forms (none planned beyond `mailto:` for now) would have proper labels and error messages.
-- Phone numbers as `tel:` links so mobile users get one-tap calling.
 - Email addresses as `mailto:` links with the canonical address `info@kiwicrm.co.nz` (single source of truth — the previous `info@gobizit.co.nz` mismatch is being corrected).
+- **Phone removed from site (per Danny 2026-04-29).** No `tel:` links, no number on display. Email is the only published contact channel. The `info@kiwicrm.co.nz` mailto handles all inbound; discovery calls are booked by reply.
