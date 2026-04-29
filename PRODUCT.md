@@ -38,7 +38,7 @@ What this site must explicitly NOT look or feel like:
 2. **Heavy corporate / Salesforce energy.** Stock photos of teams in suits, multi-tier pricing tables, 8-item navigation, foreign-feeling formality.
 3. **Cute illustration-driven SaaS.** Hand-drawn characters, isometric people, pastel gradients (Mailchimp/Notion marketing style). Wrong tone for kiwi SME owners.
 4. **Crypto / AI-startup neon.** Black backgrounds, glitchy fonts, gradient text, neon accents. Wrong audience entirely.
-5. **The category cliché palette.** Navy + bright green is the predictable "CRM consulting" combination — exactly what AI generators output by reflex. The redesign moves to a less predictable palette.
+5. ~~The category cliché palette.~~ **Overruled by Danny 2026-04-29.** The kiwi-green + navy palette stays — Danny judged it lands better for the NZ CRM market than the more distinctive coral alternative. The "AI-cliché" callout was a generic design heuristic; Danny knows his market. Green is now the load-bearing brand color (`#2eaa4a` ≈ `oklch(64% 0.18 144)`), paired with `#1a1a2e` deep navy ink. Avoid only the *generic* execution of green+navy (gradient overlays, glassmorphism, hero-metric template) — those bans still hold.
 
 ## Design Principles
 
