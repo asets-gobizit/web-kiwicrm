@@ -191,6 +191,20 @@
     }
     .topbar-contact span { color: var(--ink-muted); }
 
+    /* Zoho Authorized Partner badge — official Nov-2024 artwork */
+    .zoho-badge {
+      display: inline-block;
+      vertical-align: middle;
+      width: auto;
+      flex-shrink: 0;
+    }
+    .topbar .zoho-badge { height: 26px; }
+    .site-footer .zoho-badge { height: 44px; }
+    @media (max-width: 600px) {
+      .topbar .zoho-badge { height: 22px; }
+      .site-footer .zoho-badge { height: 36px; }
+    }
+
     /* ──────────────────────────────────────────────────────────────
        Header — logo only, no nav (one-page site)
        ────────────────────────────────────────────────────────────── */
@@ -750,6 +764,8 @@
   <div class="wrap">
     <span>NZ Zoho consulting since 2012</span>
     <div class="topbar-contact">
+      <img src="images/zoho-authorized-partner.png" alt="Zoho Authorized Partner" class="zoho-badge" width="93" height="26">
+      <span aria-hidden="true">·</span>
       <a href="mailto:info@kiwicrm.co.nz" aria-label="Email Kiwi CRM at info@kiwicrm.co.nz">info@kiwicrm.co.nz</a>
     </div>
   </div>
@@ -1030,6 +1046,7 @@
   <div class="wrap">
     <span>© <script>document.write(new Date().getFullYear())</script><noscript>2026</noscript> Kiwi CRM. NZ-based since 2012.</span>
     <span class="footer-meta">Zoho consulting · Implementation · Training · Support</span>
+    <img src="images/zoho-authorized-partner.png" alt="Zoho Authorized Partner" class="zoho-badge" width="158" height="44">
   </div>
 </footer>
 
